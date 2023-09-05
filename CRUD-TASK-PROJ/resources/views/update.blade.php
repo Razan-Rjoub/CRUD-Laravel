@@ -21,36 +21,40 @@
              <div class="form-group">
                  <label for="name">Name</label>
                  <input type="text" class="form-control" id="name" placeholder="Enter name"
-                     value="{{ $data['name'] }}" name="name" required>
+                     value="{{ $data['name'] }}" name="name">
 
              </div>
 
              <div class="form-group">
                  <label for="Description">Description:</label>
-                 <textarea type="text" class="form-control" id="description" name="description" required>{{ $data['description'] }}</textarea>
+                 <textarea type="text" class="form-control" id="description" name="description">{{ $data['description'] }}</textarea>
 
              </div>
              <div class="form-group">
                  <label for="Quntity">Quntity</label>
-                 <input type="text" class="form-control" id="Quntity" value={{ $data['quantity'] }} name="quantity"
-                     required>
+                 <input type="text" class="form-control" id="Quntity" value={{ $data['quantity'] }}
+                     name="quantity">
 
              </div>
 
              <div class="form-group">
                  <label for="Price">Price</label>
-                 <input type="text" class="form-control" id="Price" value={{ $data['price'] }} name="price"
-                     required>
+                 <input type="text" class="form-control" id="Price" value={{ $data['price'] }} name="price">
 
              </div>
 
              <div class="form-group">
                  <label for="Image">Image</label>
-                 <input type="file" class="form-control" id="Image" name="image" required>
-
+                 <input type="file" class="form-control" id="Image" name="image">
              </div>
 
-             <div class="form-group"><img src="{{ $data['image'] }}" alt=""></div>
+             <div>
+                 @if ($data->image)
+                     <img src="{{ asset('images/products/' . $data->image) }}" alt="{{ $data->name }}" width="200"
+                         height="200">
+                 @endif
+             </div>
+
              <button type="submit" class="btn btn-primary">Save updata</button>
          </form>
      </div>

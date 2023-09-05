@@ -4,22 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\updateController;
 use App\Http\Controllers\CreateController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+use App\Http\Controllers\DisplayController;
+use App\Http\Controllers\DeleteController;
 
-Route::get('/update/{id}', [updateController::class, 'getupdate']);
+
+Route::get('/display', function () {
+    return view('display');
+})->name('display');
+
+Route::get('/update/{id}', [updateController::class, 'getupdate'])->name('Update');
 Route::post('/update/{id}', [updateController::class, 'updateData'])->name('update');
 
 
@@ -30,3 +24,9 @@ Route::get('/create', [CreateController::class, 'create'])->name('create');
 Route::post('/create', [CreateController::class, 'store']);
 Route::get('/index', [CreateController::class, 'index'])->name('index');
 
+Route::get('/', [DisplayController::class, 'index']);
+
+Route::get('/delete/{id}', [DeleteController::class, 'delete'])->name('delete');
+
+
+Route::get('/display', [DisplayController::class, 'index'])->name('display');
