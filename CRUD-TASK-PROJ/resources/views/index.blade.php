@@ -27,7 +27,10 @@
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->quantity }}</td>
-                        <td><img src="{{ asset('storage/' . $product->image) }}" alt=""></td>
+                        <td>@if ($product->image)
+                            <img src="{{ asset('images/products/' . $product->image) }}" alt="{{ $product->name }}" width="300">
+                        @endif
+                        </td>
                     </tr>
                 @endforeach
                
