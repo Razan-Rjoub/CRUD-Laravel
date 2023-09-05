@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\updateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
+// Route::get('/update/{id}', function () {
+//     return view('update');
+// });
+Route::get('/update/{id}', [updateController::class, 'getupdate']);
+Route::post('/update/{id}', [updateController::class, 'updateData'])->name('update');
