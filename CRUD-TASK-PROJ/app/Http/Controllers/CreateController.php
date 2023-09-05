@@ -14,7 +14,7 @@ class CreateController extends Controller
         return view('index',compact('products'));
     }
     public function create(){
-        return redirect('create');
+        return view('create');
     }
     public function store(Request $request){
 

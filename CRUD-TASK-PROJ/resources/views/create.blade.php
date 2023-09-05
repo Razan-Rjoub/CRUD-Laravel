@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
     <div class="container mt-5">
+        
         <h1 class="mb-4">Product Information Form</h1>
+        <a href="{{ route('index') }}"><button>View</button></a>
         <form action="{{route('create')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('post')
